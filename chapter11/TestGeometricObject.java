@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class TestGeometricObject {
 	public static void main(String[] args) {
-		GeometricObject geometricObject = new Circle("blue",true, 2.0);
-		System.out.println(geometricObject + "\n");
+//		GeometricObject geometricObject = new Circle("blue",true, 2.0);
+//		System.out.println(geometricObject + "\n");
 		
 //		Circle circle1 = new Circle();
 //		System.out.println("The circle1 " + circle1.toString());
@@ -33,11 +33,11 @@ public class TestGeometricObject {
 		//Assign object to the objectHolder array
 		//3 circle
 		for(int i = 0; i < 3; i++) {
-			objHolder.add(new Circle());
+			objHolder.add(new Circle("blue",true,2.0));
 		}
 		//2 rectangle
 		for(int i = 3; i < 5; i++) {
-			objHolder.add(new Rectangle());
+			objHolder.add(new Rectangle("red",true,3.0,2.0));
 		}
 		
 		//Print all the object
@@ -45,7 +45,7 @@ public class TestGeometricObject {
 			System.out.println(objHolder);	
 			
 			
-		objHolder.get(i).setColor("red");
+		objHolder.get(i).setColor("RED");
 		objHolder.get(i).repaint();
 		try {
 			Thread.sleep(1000);  //1000milli second = 1 sec
@@ -59,7 +59,7 @@ public class TestGeometricObject {
 		
 		
 		
-		
+	
 		
 		
 		

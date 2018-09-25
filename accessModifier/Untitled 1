@@ -1,0 +1,9 @@
+What is 
+	public static void main(String[] args)
+
+public means that this method is public
+static means it is ceo: mike and john both have same ceo, so ceo would be static variable.
+	//static means something in common
+void means it doesn't return anything
+() means it is an argument
+(String[] args) means Create an array of string with the variable name args.

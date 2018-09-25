@@ -160,12 +160,5 @@ public class GeometricObject extends JPanel{
 		else {
 			geometricObject.graphics.setColor(Color.YELLOW);
 		}
-		
-		
-		
-		
-		
-		
-	}
-	 
+	}	 
 }

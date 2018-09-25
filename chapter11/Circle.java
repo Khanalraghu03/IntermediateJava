@@ -8,6 +8,7 @@ public class Circle extends GeometricObject {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	
 	public Circle() {
 		super();
 		//provide 1.0 as the default value for the radius
@@ -82,6 +83,7 @@ public class Circle extends GeometricObject {
 	
 	public void drawGeometricObject(GeometricObject geometricObject) {
 		//specify the bounds for the graphics object
+		super.drawGeometricObject(geometricObject);
 		int boundingBoxWidth = (int) (2* this.radius * SCREEN_RESOLUTION);
 		int boundingBoxHeight = (int) (2* this.radius * SCREEN_RESOLUTION);
 		
@@ -95,12 +97,6 @@ public class Circle extends GeometricObject {
 		else {
 			graphics.fillOval(5, 5, boundingBoxWidth, 
 					boundingBoxHeight);
-		}
-		
-		
-		
-		
+		}	
 	}
-	
-
 }

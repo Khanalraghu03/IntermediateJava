@@ -10,7 +10,8 @@ public class Rectangle extends GeometricObject{
 	private double rectangleHeight;
 	
 	public Rectangle() {
-		
+		this.rectangleWidth = 2.0;
+		this.rectangleHeight = 1.0;
 	}
 	
 	public Rectangle(double rectangleWidth, double rectangleHeight) {
@@ -71,47 +72,34 @@ public class Rectangle extends GeometricObject{
 	//getWindowWidth: int
 	
 	public int getWindowWidth() {
-		return (int) (2* this.rectangleWidth * SCREEN_RESOLUTION) + 20;
+		return (int) (this.rectangleWidth * SCREEN_RESOLUTION) + 20;
 	
 	}
 	
 	//getWindowHeight: int
 	public int getWindowHeight() {
-		return (int) (2* this.rectangleHeight * SCREEN_RESOLUTION) + 20;
+		return (int) (this.rectangleHeight * SCREEN_RESOLUTION) + 20;
 	}
 	
 	//drawGeometricObject: GeometricObject geometricObject
 	public void drawGeometricObject(GeometricObject geometricObject) {
-		
-		
+		super.drawGeometricObject(geometricObject);
 	
 	//	specify the bounds for the graphics object
 //		
-		int boundingBoxWidth = (int) (2* this.getWidth() * SCREEN_RESOLUTION);
-		int boundingBoxHeight = (int) (2* this.getHeight() * SCREEN_RESOLUTION);
+		int boundingBoxWidth = (int) (this.getWidth() * SCREEN_RESOLUTION);
+		int boundingBoxHeight = (int) (this.getHeight() * SCREEN_RESOLUTION);
 		
 		//Check the filled attribute defined in the superclass and use the drawOval method to draw the circle
 		if(!geometricObject.isFilled()) {
 			//first and second args (x,y --> respectively): specifies the upper left corner of the object bounding box.
 			//Position the object at the origin
-			graphics.drawOval(5, 5, boundingBoxWidth, 
+			graphics.drawRect(10, 10, boundingBoxWidth, 
 					boundingBoxHeight);
 		}
 		else {
-			graphics.fillOval(5, 5, boundingBoxWidth, 
+			graphics.drawRect(10, 10, boundingBoxWidth, 
 					boundingBoxHeight);
 		}
-		
-		
-		
-		
-		
-		
-		
-		
 	}
-	
-	
-	
-	
 }
