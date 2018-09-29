@@ -1,3 +1,10 @@
+/*
+ * @author: Raghu Khanal
+ * 
+ * 
+ * 
+ * */
+
 package chapter11.assingment;
 
 public class Person {
@@ -6,8 +13,6 @@ public class Person {
 	private String phoneNumber;
 	private String emailAddress;
 	
-
-	
 	public Person(String name, String address, String phoneNumber, String emailAddress) {
 		this.name = name;
 		this.address = address;
@@ -15,8 +20,6 @@ public class Person {
 		this.emailAddress = emailAddress;
 	}
 	
-
-
 	/**
 	 * @return the name
 	 */

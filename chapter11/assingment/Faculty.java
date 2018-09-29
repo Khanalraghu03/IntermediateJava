@@ -1,13 +1,16 @@
+/*
+ * @author: Raghu Khanal
+ * 
+ * 
+ * 
+ * */
+
 package chapter11.assingment;
 
 public class Faculty extends Employee{
 	private String officeHours;
 	private String rank;
-//	private double totalFacultyPay;
-	
-	
-	
-	
+
 	public Faculty(String name, String address,String phoneNumber, String emailAddress,
 			String office, double salary, String officeHours, String rank) {
 		super(name,address,phoneNumber,emailAddress,office,salary);
@@ -15,8 +18,6 @@ public class Faculty extends Employee{
 		this.rank = rank;
 	}
 	
-	
-		
 	/**
 	 * @return the officeHours
 	 */
@@ -47,17 +48,14 @@ public class Faculty extends Employee{
 	
 	@Override
 	public double getEmployeeBonus () {
-//		this.totalFacultyPay = super.getTotalPay() + getSalary()* 0.045;
+
 		return super.getEmployeeBonus() + 0.045 * getSalary();
 	}
-	
 
 	@Override
 	public String toString() {
 		return super.toString() + " Faculty [officeHours=" 
 				+ officeHours + ", rank=" + rank + "]";
 	}
-	
-	
 	
 }

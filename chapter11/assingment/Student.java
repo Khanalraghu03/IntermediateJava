@@ -1,9 +1,14 @@
+/*
+ * @author: Raghu Khanal
+ * 
+ * 
+ * 
+ * */
+
 package chapter11.assingment;
 
 public class Student extends Person {
 	private String classStatus;
-	
-	public Student() {}
 	
 	public Student(String name, String address, String phoneNumber,
 			String emailAddress, String cLASS_STATUS) {
@@ -26,15 +31,9 @@ public class Student extends Person {
 		this.classStatus = classStatus;
 	}
 
-	
-	
-	
-	
-	
 	@Override
 	public String toString() {
 		return super.toString() + " Student [classStatus=" + classStatus + "]";
 	}
-	
 	
 }

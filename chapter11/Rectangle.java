@@ -94,6 +94,9 @@ public class Rectangle extends GeometricObject{
 		if(!geometricObject.isFilled()) {
 			//first and second args (x,y --> respectively): specifies the upper left corner of the object bounding box.
 			//Position the object at the origin
+			
+			
+			
 			graphics.drawRect(10, 10, boundingBoxWidth, 
 					boundingBoxHeight);
 		}

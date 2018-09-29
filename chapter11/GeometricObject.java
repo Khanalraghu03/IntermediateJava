@@ -16,7 +16,7 @@ public class GeometricObject extends JPanel{
 	private String color;
 	private boolean filled;
 	private Date dateCreated;
-	private JFrame frame;
+	private JFrame frame; 
 	//Object reference to the window
 		//Class members with protected modifier can be accessed from
 		//classes within the same package and all subclasses even if

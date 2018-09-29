@@ -1,5 +1,9 @@
 package review;
 public class Square{
+	//Encapsulation: cannot access it outside of a class.
+    private double lengthOfSide;
+    private static int numberOfSquares;
+    
     //constructor
     public Square() {
         this.lengthOfSide = 1.0;
@@ -9,10 +13,6 @@ public class Square{
         this.lengthOfSide = lengthOfSide;
         numberOfSquares++;
     }
-
-    //Encapsulation: cannot access it outside of a class.
-    private double lengthOfSide;
-    private static int numberOfSquares;
 
     //Getter
     public double getLengthOfSide() {

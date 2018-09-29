@@ -1,3 +1,10 @@
+/*
+ * @author: Raghu Khanal
+ * 
+ * 
+ * 
+ * */
+
 package chapter11.assingment;
 
 import java.util.Date;
@@ -6,11 +13,7 @@ public class Employee extends Person {
 	private String office;
 	private double salary;
 	private Date dateHired;
-//	private double totalPay;
-	
-	
 
-	
 	public Employee(String name, String address, String phoneNumber, 
 			String emailAddress, String office, double salary) {
 		super(name,address, phoneNumber, emailAddress);
@@ -18,9 +21,6 @@ public class Employee extends Person {
 		this.salary = salary;
 		this.dateHired = new Date();
 	}
-	
-	
-	
 
 	/**
 	 * @return the office
@@ -64,10 +64,7 @@ public class Employee extends Person {
 		this.dateHired = dateHired;
 	}
 	
-	
-	
 	public double getEmployeeBonus() {
-//		totalPay = this.salary + this.salary * 0.05;
 		return this.salary + 0.5 * this.salary;
 	}
 	
@@ -75,7 +72,6 @@ public class Employee extends Person {
 		return this.salary + getEmployeeBonus();
 	}
 	
-
 	@Override
 	public String toString() {
 		return (super.toString() 

@@ -1,3 +1,10 @@
+/*
+ * @author: Raghu Khanal
+ * @description: This program will test the person class using arraylist to store objects of person, and print it.
+ * 
+ * 
+ * */
+
 package chapter11.assingment;
 
 import java.util.ArrayList;
@@ -30,10 +37,8 @@ public class TestPerson
 			}
 		}
 		
-		
 		//Remove the employee object
 		personObject.remove(2);
-		
 		
 		//Print the ArrayList
 		for(int i = 0; i < personObject.size(); i++) 
@@ -51,14 +56,10 @@ public class TestPerson
 			System.out.println(personObject.get(i).toString());
 		}
 		
-		
 		Faculty faculty = new Faculty("Faculty", "Address", "404-345=5679", "e@gmail.com", "C-1101", 11000,"9:00AM - 5:00PM", "Professor");
 		System.out.println("The total pay for the Faculty is " + faculty.getTotalPay());
 		
 		Staff staff = new Staff("TheStaff", "2345 Hello-World Street", "678-543-7654", "e@gmail.com", "H-1101", 11000, "Principle");
 		System.out.println("The total pay for the Staff is " + staff.getTotalPay());
-		
-		
-		
 	}
 }
