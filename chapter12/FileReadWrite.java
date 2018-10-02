@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Scanner;
 
 /**
  * @author Raghu Khanal
@@ -16,6 +17,7 @@ import java.io.PrintWriter;
 public class FileReadWrite {
 	File filePath;
 	
+	
 	/**
 	 * 
 	 */
@@ -23,8 +25,8 @@ public class FileReadWrite {
 	{
 		//user.home obtains the path up to C:\Users\Khana\
 		filePath= new File(System.getProperty("user.home") + File.separatorChar 
-				+ "desktop" + File.separatorChar + "TestIO" + File.separatorChar + 
-				"text_file.txt");
+				+ "desktop" + File.separatorChar + "TestIO" + File.separatorChar 
+				+ "text_file.txt");
 	}
 	
 	public void createFile() 
@@ -88,10 +90,138 @@ public class FileReadWrite {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		if (fileWrite != null) {
+		if (fileWrite != null) 
+		{
 			fileWrite.close();
-			System.out.println();
 		}
 
 	}
+	public void readFile()
+	{
+		Scanner fileRead = null;
+		try 
+		{
+			fileRead = new Scanner(filePath);
+			//Use a loop. Check to see if there is a line to read
+				//If there is a line to read, store it as a String
+				//And display the screen on the console
+			//When there are no lines to read, the loop should 
+				//terminate.
+			String line = "";
+			while(fileRead.hasNextLine())
+			{
+				line = fileRead.nextLine();
+				System.out.println(line);
+			}
+			
+			System.out.println("File read complete");
+			
+		} 
+		
+		catch (FileNotFoundException e) 
+		{
+			System.out.println("Failed to read file");
+		}
+		
+		if(fileRead != null)
+		{
+			fileRead.close();
+		}
+		
+	}
+	
+	
+	public void typeLinesToFile()
+	{
+		Scanner input = new Scanner(System.in);
+		PrintWriter writeToFile = null;
+		System.out.print("Please enter a line of texts {enter q to quit}: ");
+		String lineOfTexts = input.next();
+	
+		while(!(lineOfTexts.equalsIgnoreCase("q") || lineOfTexts.equalsIgnoreCase("quit")))
+		{
+			lineOfTexts = input.nextLine();
+			try {
+				writeToFile = new PrintWriter(filePath);
+				writeToFile.write(lineOfTexts);
+				System.out.println("Wrote to file");
+				
+			} catch (FileNotFoundException e1) {
+				System.out.println("Cannot write to the file");
+			}
+			
+			
+		} 
+	
+		
+		input.close();
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		Scanner fileRead = null;
+		try 
+		{
+			fileRead = new Scanner(filePath);
+			//Use a loop. Check to see if there is a line to read
+				//If there is a line to read, store it as a String
+				//And display the screen on the console
+			//When there are no lines to read, the loop should 
+				//terminate.
+			String line = "";
+			while(fileRead.hasNextLine())
+			{
+				line = fileRead.nextLine();
+				System.out.println(line);
+			}
+			
+			System.out.println("File read complete");
+			
+		} 
+		
+		catch (FileNotFoundException e) 
+		{
+			System.out.println("Failed to read file");
+		}
+		
+		if(fileRead != null)
+		{
+			fileRead.close();
+		}
+		
+		
+		
+		
+
+		
+	}
+	
+	public void parseFile()
+	{
+		System.out.println();
+		
+	}
+	
+	public void copyFile()
+	{
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
