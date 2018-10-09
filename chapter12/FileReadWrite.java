@@ -335,16 +335,19 @@ public class FileReadWrite {
 		//Parse the string in to the double
 		Scanner readFile = null;
 		String readedLine = null;
-		Double num;
+		
 		ArrayList<Double> theDoubleList = new ArrayList<>();
 		try {
 //			System.out.println(“Reading and displaying data from file”);
 			readFile = new Scanner(dataFilePath);
-		} catch (FileNotFoundException e) {// TODO Auto-generated catch block
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
 			System.out.println("The file doesn't exist");
 			
-			}
+		}
 	
+		//Compute Sum and Average
+		Double num;
 		double sum = 0;
 		double avg = 0;
 		while(readFile.hasNext()) {
@@ -353,7 +356,7 @@ public class FileReadWrite {
 			
 			try {
 			num = Double.parseDouble(readedLine);
-			theDoubleList.add(1.0);
+			theDoubleList.add(num);
 			
 			}catch(NumberFormatException e) 
 			{
@@ -370,7 +373,7 @@ public class FileReadWrite {
 	
 		}
 		
-		//Compute Sum and Average
+		//Print Sum and Average
 		System.out.println("The sum of the arrayList is " + sum);
 		System.out.println("The avg of the arrayList is " + avg);
 			
