@@ -16,7 +16,7 @@ public class TestFileReadWrite
 	 * @param args
 	 * @throws IOException 
 	 */
-	public static void main(String[] args) throws IOException 
+	public static void main(String[] args)
 	{
 		
 		FileReadWrite fileReadWrite = new FileReadWrite();

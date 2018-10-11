@@ -19,8 +19,7 @@ public class FileReadWrite {
 	File filePath;
 	File filePathCopy;
 	File dataFilePath;
-	Scanner dataInput;
-	Scanner readFile;
+	
 	/**
 	 * 
 	 */
@@ -186,7 +185,7 @@ public class FileReadWrite {
 		//Display the number of lines
 		
 			//if "\n" then count++
-		
+		Scanner readFile;
 		String line;
 		int countLines = 0;
 		int countWords = 0;
@@ -275,7 +274,7 @@ public class FileReadWrite {
 	}
 	
 	
-	public void parseDataFile() throws IOException {
+	public void parseDataFile() {
 		
 		//Create a folder and the file first
 		 boolean fileCreated = false;
@@ -302,29 +301,29 @@ public class FileReadWrite {
 				
 			}
 			
-			//After creating the file, now write in it
-
-		
-		//Loop to calculate the number of line by using the lineOfTexts, 
-//		for()
-		
-		//Display the number of lines
-		
-			//if "\n" then count++
+		//Get input from users and Write to the data file	
+		PrintWriter writeToLine = null;
+		Scanner dataInput = null;
+		String datas = null;
 	
+		try {
+			writeToLine = new PrintWriter(new FileWriter(dataFilePath, true));
+			dataInput = new Scanner(System.in); //Saves the input the user inputed into the variable dataInput
 			
-		PrintWriter writeToLine = new PrintWriter(new FileWriter(dataFilePath, true)); //Writes to the data file
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			System.out.println("IOException in parseDataFile() @ line 319");
+		} //Writes to the data file
 		
 		System.out.print("Please enter the data {enter 'q' to quit}: "); //Alerts user to input data
-		//		String datas = "";
-		dataInput = new Scanner(System.in); //Saves the input the user inputed into the variable dataInput
-		String datas = dataInput.next();  //Save what is stored in dataInput to the string datas
-		
+		datas = dataInput.nextLine();  //Save what is stored in dataInput to the string datas
 		
 		while(!(datas.equalsIgnoreCase("q") || datas.equalsIgnoreCase("quit"))) {
-			System.out.print("Please enter the data {enter 'q' to quit}: ");
-			datas = dataInput.next();
 			writeToLine.println(datas);
+			System.out.print("Please enter the data {enter 'q' to quit}: ");
+			datas = dataInput.nextLine();
+			
 		}
 		
 		System.out.println("Done entering data to the file");
@@ -332,51 +331,67 @@ public class FileReadWrite {
 		dataInput.close();
 		
 		
-		//Parse the string in to the double
-		Scanner readFile = null;
-		String readedLine = null;
-		
+		//Read from the data file and add to the ArrayList
 		ArrayList<Double> theDoubleList = new ArrayList<>();
+		Scanner readFile = null;
+		String line = null;
+		String[] storeValue = null;
+		Double num = null;
+		double sum = 0;
+		double avg = 0;
+		
+		System.out.println("Reading and displaying data from file: ");
 		try {
 //			System.out.println(“Reading and displaying data from file”);
 			readFile = new Scanner(dataFilePath);
-		} catch (FileNotFoundException e) {
+//			line = "["+ readFile.nextLine() +"]";
+			
+			while(readFile.hasNextLine()) {
+				line = "["+ readFile.nextLine() +"]";
+				System.out.println(line);
+				line = line.substring(1, line.length() -1);
+				storeValue = line.split(";");
+				if(line.length() > 1)
+				{
+					for(int i = 0; i < storeValue.length; i++) 
+					{
+						storeValue = line.split(";");
+						if(storeValue.length > 0) 
+						{
+							try {
+							num = Double.parseDouble(storeValue[i]);
+							theDoubleList.add(num);
+							} catch (NumberFormatException e) {
+//								System.out.println("Assigning 1.0 to " + storeValue[i]);
+//								System.out.println(readedLine + " has been assigned to 1.0");
+								num = 1.0;
+								theDoubleList.add(num);
+							}
+						}
+					}
+					
+				}
+			} 
+			
+		readFile.close();
+		
+		//Compute sum and average
+		for(int i = 0; i < theDoubleList.size();i++) {
+			sum += theDoubleList.get(i);
+		}
+		
+		avg = sum / theDoubleList.size();
+		
+		//Print Sum and Average
+		System.out.println("The sum of the arrayList is " + sum);
+		System.out.println("The avg of the arrayList is " + avg);
+		
+		}catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			System.out.println("The file doesn't exist");
 			
 		}
 	
-		//Compute Sum and Average
-		Double num;
-		double sum = 0;
-		double avg = 0;
-		while(readFile.hasNext()) {
-			
-			readedLine= readFile.next();
-			
-			try {
-			num = Double.parseDouble(readedLine);
-			theDoubleList.add(num);
-			
-			}catch(NumberFormatException e) 
-			{
-//				System.out.println(readedLine + " has been assigned to 1.0");
-
-				theDoubleList.add(1.0);
-//				System.out.println("The array list " + theDoubleList);
-				for (int i = 0; i < theDoubleList.size(); i++)
-				{
-					sum += theDoubleList.get(i);
-				}
-				avg = sum / theDoubleList.size();
-			}
-	
-		}
-		
-		//Print Sum and Average
-		System.out.println("The sum of the arrayList is " + sum);
-		System.out.println("The avg of the arrayList is " + avg);
-			
 	}
 	
 }
