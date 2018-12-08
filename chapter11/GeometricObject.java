@@ -8,7 +8,7 @@ import java.util.Date;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class GeometricObject extends JPanel{
+public abstract class GeometricObject extends JPanel{
 	/**
 	 * 
 	 */
@@ -49,6 +49,8 @@ public class GeometricObject extends JPanel{
 		//Also the program should terminate when the window is closed
 		this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
+	
+	public abstract double getArea();
 
 	/**
 	 * @return the color

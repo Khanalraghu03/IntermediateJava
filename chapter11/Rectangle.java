@@ -53,7 +53,7 @@ public class Rectangle extends GeometricObject{
 	}
 	
 	
-	//getArea
+	@Override
 	public double getArea() {
 		return Math.PI * rectangleWidth * rectangleHeight;
 	}

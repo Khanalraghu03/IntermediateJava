@@ -96,7 +96,6 @@ public class FileReadWrite {
 		} catch (FileNotFoundException e) {
 			System.out.println("Unable to write to the file due to");
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if (fileWrite != null) 
@@ -358,10 +357,12 @@ public class FileReadWrite {
 						storeValue = line.split(";");
 						if(storeValue.length > 0) 
 						{
-							try {
-							num = Double.parseDouble(storeValue[i]);
-							theDoubleList.add(num);
-							} catch (NumberFormatException e) {
+							try 
+							{
+								num = Double.parseDouble(storeValue[i]);
+								theDoubleList.add(num);
+							} catch (NumberFormatException e) 
+							{
 //								System.out.println("Assigning 1.0 to " + storeValue[i]);
 //								System.out.println(readedLine + " has been assigned to 1.0");
 								num = 1.0;

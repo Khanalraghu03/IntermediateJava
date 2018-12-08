@@ -56,7 +56,7 @@ public class Circle extends GeometricObject {
 					+ super.toString() + "]";
 	}
 	
-	//Get Area
+	@Override
 	public double getArea() {
 		return Math.PI * Math.pow(radius, 2);
 	}
